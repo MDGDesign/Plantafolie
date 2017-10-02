@@ -1,0 +1,21 @@
+﻿
+
+Produits View Create et Edit
+	Ajouter une validation JS pour les champs PrixDemande  et PrixDeVente
+
+Produits
+	Changer le trie du ID pour apr le nom sera meilleur dans ce cas pour la recherche du produit
+		
+		Ordre de trie des catégories à vérifier
+
+	Ajouter les modifications des listes États et Catégories - CRUD pour chacun
+
+	Ajouter un controller Store pour  pour les clients
+
+	Ajouter les fonction de fichier à la page Edit
+
+	Ajouter media query 
+		480px pour les images
+		Vue details, delete marge inférieur des données plus grande
+
+	Modifier l'index du home

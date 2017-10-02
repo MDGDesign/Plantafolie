@@ -5,11 +5,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Plantafolie.Models;
+using Plantafolie.Models.Produit;
 
 namespace Plantafolie.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+        // Produit
+        public DbSet<Produit> Produits { get; set; }
+        public DbSet<Categorie> Categories { get; set; }
+        public DbSet<Etat> Etats { get; set; }
+
+
+        // Shopping cart
+
+
+
+
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

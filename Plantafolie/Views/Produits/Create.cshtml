@@ -1,0 +1,81 @@
+﻿@model Plantafolie.Models.Produit.Produit
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Ajouter un nouveau produit</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrixDemande" class="control-label"></label>
+                <input asp-for="PrixDemande" class="form-control" />
+                <span asp-validation-for="PrixDemande" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrixDeVente" class="control-label"></label>
+                <input asp-for="PrixDeVente" class="form-control" />
+                <span asp-validation-for="PrixDeVente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" type="file" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantite" class="control-label"></label>
+                <input asp-for="Quantite" class="form-control" />
+                <span asp-validation-for="Quantite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Disponible" /> @Html.DisplayNameFor(model => model.Disponible)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poids" class="control-label"></label>
+                <input asp-for="Poids" class="form-control" />
+                <span asp-validation-for="Poids" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EtatID" class="control-label"></label>
+                
+               <!-- <span class="text-info">Il est possible de sélectionner plusieurs états à la fois (CTRL + clique)</span> --> 
+                <select asp-for="EtatID" class="form-control" asp-items="ViewBag.EtatID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategorieID" class="control-label"></label>
+               
+                <!-- <span class="text-info">Il est possible de sélectionner plusieurs catégorie à al fois (CTRL + clique)</span> -->
+                <select asp-for="CategorieID" class ="form-control" asp-items="ViewBag.CategorieID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ajouter" class="btn btn-default" />
+                <input type="reset" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Retour à la liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

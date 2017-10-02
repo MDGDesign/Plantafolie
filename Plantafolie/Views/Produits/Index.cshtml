@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Plantafolie.Models.Produit.Produit>
+@using PagedList.Mvc;
+@using PagedList;
+
+
+
+
+@{
+    string titre = "Liste des produits";
+    ViewData["Title"] = titre;
+}
+<br />
+<div class="pageTool">
+    <h2>@titre</h2>
+    <div class="">
+        <a asp-action="Create" class="btn btn-default">Nouveau produit</a>
+    </div>
+
+        @using (Html.BeginForm())
+        {
+            <div class="">
+                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                <input type="submit" name="search" value="Recherche" />
+            </div>
+
+        }
+
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    <!-- Html.DisplayNameFor(model => model.Nom) -->
+                    @Html.ActionLink("Nom", "Index", new { sortOrder = ViewBag.NomSortParam, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrixDemande)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrixDeVente)
+                </th>
+                <th>
+                    <!-- Html.DisplayNameFor(model => model.DateDeCreation) -->
+                    @Html.ActionLink("Date", "Index", new {sortOrder = ViewBag.DateSortParam, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Disponible)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Poids)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etat)
+                </th>
+                <th>
+                    <!-- Html.DisplayNameFor(model => model.Categorie) -->
+                    @Html.ActionLink("Catégorie", "Index", new { sortOrder = ViewBag.CatSortParam, currentFilter = ViewBag.CurrentFilter })
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrixDemande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrixDeVente)
+            </td>
+            <td class="text-nowrap">
+                @Html.DisplayFor(modelItem => item.DateDeCreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disponible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poids) kg
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etat.EtatNom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorie.CategorieNom)
+            </td>
+            <td class="text-nowrap">
+                <a asp-action="Edit" asp-route-id="@item.ProduitID" class="btn btn-default">Édition</a> 
+                <a asp-action="Details" asp-route-id="@item.ProduitID" class="btn btn-default">Détails</a> 
+                <a asp-action="Delete" asp-route-id="@item.ProduitID" class="btn btn-default">Supprimer</a>
+            </td>
+        </tr>
+}       <!-- Html.PagedListPager ((IPagedList)ViewBag.PageOfProducts, page => Url.Action("Index", new { page })) -->
+    </tbody>
+</table>
