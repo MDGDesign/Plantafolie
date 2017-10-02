@@ -1,0 +1,22 @@
+﻿@model Plantafolie.Models.Client
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Confirmation de suppression !</h2>
+<hr/>
+<p>
+    Êtes-vous certain de vouloir supprimer le client :
+    <strong>@Model.Prenom, @Model.Nom</strong>?
+</p>
+<hr/>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Supprimer" />
+    </p>
+    <p>
+        @Html.ActionLink("Retour à la liste", "Index")
+    </p>
+}

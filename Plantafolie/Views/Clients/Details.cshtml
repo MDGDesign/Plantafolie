@@ -1,0 +1,78 @@
+﻿@model Plantafolie.Models.Client
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ville)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ville)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Province)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pays)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pays)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cellulaire)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cellulaire)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MotDePasse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MotDePasse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Courriel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Courriel)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ClientId">Editer</a> |
+    <a asp-action="Index">Retour à la liste</a>
+</div>
