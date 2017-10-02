@@ -11,8 +11,8 @@ using System;
 namespace Plantafolie.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20171002140755_AllOfIt")]
-    partial class AllOfIt
+    [Migration("20171002183807_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -178,6 +178,36 @@ namespace Plantafolie.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("Plantafolie.Models.Client", b =>
+                {
+                    b.Property<int>("ClientId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Adresse");
+
+                    b.Property<string>("Cellulaire");
+
+                    b.Property<string>("Courriel");
+
+                    b.Property<string>("MotDePasse");
+
+                    b.Property<string>("Nom");
+
+                    b.Property<string>("Pays");
+
+                    b.Property<string>("Prenom");
+
+                    b.Property<string>("Province");
+
+                    b.Property<string>("Telephone");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("ClientId");
+
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("Plantafolie.Models.Produit.Categorie", b =>

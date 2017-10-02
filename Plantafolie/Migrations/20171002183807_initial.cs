@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Plantafolie.Migrations
 {
-    public partial class AllOfIt : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,6 +59,28 @@ namespace Plantafolie.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.CategorieID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Clients",
+                columns: table => new
+                {
+                    ClientId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Adresse = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Cellulaire = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Courriel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MotDePasse = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nom = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Pays = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Prenom = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Province = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telephone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ville = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clients", x => x.ClientId);
                 });
 
             migrationBuilder.CreateTable(
@@ -281,6 +303,9 @@ namespace Plantafolie.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Clients");
 
             migrationBuilder.DropTable(
                 name: "Produits");

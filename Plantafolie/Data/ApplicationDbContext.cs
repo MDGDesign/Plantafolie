@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Plantafolie.Models;
+using Plantafolie.Models.Produit;
 
 namespace Plantafolie.Data
 {
@@ -12,6 +13,10 @@ namespace Plantafolie.Data
     {
 
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Produit> Produits { get; set; }
+        public DbSet<Categorie> Categories { get; set; }
+        public DbSet<Etat> Etats { get; set; }
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
