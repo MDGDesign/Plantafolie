@@ -12,6 +12,10 @@ namespace Plantafolie.Data
     {
 
         public DbSet<Client> Clients { get; set; }
+        //public DbSet<Produit> Produits { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

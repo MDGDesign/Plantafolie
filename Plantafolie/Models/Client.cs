@@ -17,8 +17,6 @@ namespace Plantafolie.Models
         public string Pays { get; set; }
         public string Telephone { get; set; }
         public string Cellulaire { get; set; }
-        [DisplayName("Mot de passe")]
-        public string MotDePasse { get; set; }
         public string Courriel { get; set; }
     }
 }

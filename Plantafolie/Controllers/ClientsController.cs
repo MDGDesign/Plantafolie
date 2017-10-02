@@ -20,9 +20,15 @@ namespace Plantafolie.Controllers
         }
 
         // GET: Clients
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string searchString)
         {
-            return View(await _context.Clients.ToListAsync());
+            ViewData["CurrentFilter"] = searchString;
+            IEnumerable<Client> clientList = _context.Clients;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                clientList = clientList.Where(s => s.Prenom.Contains(searchString) || s.Nom.Contains(searchString) || s.Courriel.Contains(searchString));
+            }
+            return View(clientList);
         }
 
         // GET: Clients/Details/5
@@ -60,7 +66,7 @@ namespace Plantafolie.Controllers
             {
                 _context.Add(client);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             return View(client);
         }
@@ -148,6 +154,30 @@ namespace Plantafolie.Controllers
         private bool ClientExists(int id)
         {
             return _context.Clients.Any(e => e.ClientId == id);
+        }
+
+        // GET: Clients/Historique/5
+        public async Task<IActionResult> Historique(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var client = await _context.Clients.SingleOrDefaultAsync(m => m.ClientId == id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+            return View(client);
+        }
+
+        // POST: Clients/Historique/5
+        [HttpPost, ActionName("Historique")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Historique(int id)
+        {
+            return View();
         }
     }
 }

@@ -1,4 +1,40 @@
-﻿body {
+﻿
+/* CUSTOM CSS */
+.itemImg {
+    border-radius: 5px;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.7);
+    /* Ajustement des image via les média query */
+}
+
+.pageTool {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.pageItem {
+    margin: 0 20px 20px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.pageItem div:nth-child(2) {
+    background: #0ee60e;
+}
+
+.pageItem div:last-child {
+    background: #ff6a00;
+}
+
+
+.pageItems div {
+    margin: 10px 0 10px 0;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -33,3 +69,8 @@
         display: none;
     }
 }
+
+
+
+
+

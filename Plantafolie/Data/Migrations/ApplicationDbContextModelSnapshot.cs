@@ -190,8 +190,6 @@ namespace Plantafolie.Data.Migrations
 
                     b.Property<string>("Courriel");
 
-                    b.Property<string>("MotDePasse");
-
                     b.Property<string>("Nom");
 
                     b.Property<string>("Pays");
