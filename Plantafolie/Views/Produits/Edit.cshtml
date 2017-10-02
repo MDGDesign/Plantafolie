@@ -1,0 +1,95 @@
+﻿@model Plantafolie.Models.Produit.Produit
+
+@{
+    ViewData["Title"] = "Édition : " + Model.Nom;
+}
+
+<h2 class="text-info">Édition de : <i>@Model.Nom</i></h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProduitID" />
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrixDemande" class="control-label"></label>
+                <input asp-for="PrixDemande" class="form-control" />
+                <span asp-validation-for="PrixDemande" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrixDeVente" class="control-label"></label>
+                <input asp-for="PrixDeVente" class="form-control" />
+                <span asp-validation-for="PrixDeVente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageName" class="control-label"></label>
+                <input asp-for="ImageName" class="form-control" disabled="disabled"/>
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateDeCreation" class="control-label"></label>
+                <input asp-for="DateDeCreation" class="form-control" disabled="disabled" />
+                <span asp-validation-for="DateDeCreation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantite" class="control-label"></label>
+                <input asp-for="Quantite" class="form-control" />
+                <span asp-validation-for="Quantite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Disponible" /> @Html.DisplayNameFor(model => model.Disponible)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poids" class="control-label"></label>
+                <input asp-for="Poids" class="form-control" />
+                <span asp-validation-for="Poids" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EtatID" class="control-label"></label>
+                <!-- <span class="text-info">Il est possible de sélectionner plusieurs états à la fois (CTRL + clique)</span> -->
+                <select asp-for="EtatID" class="form-control" asp-items="ViewBag.EtatID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategorieID" class="control-label"></label>
+                <select asp-for="CategorieID" class="form-control" asp-items="ViewBag.CategorieID"></select>
+                <span asp-validation-for="CategorieID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enregistrer" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <form form="Edit">
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" type="file" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+        </form>
+        <img src="~/Images/Produits/@Model.ImageName" alt="@Model.Nom" class="itemImg"/>     
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

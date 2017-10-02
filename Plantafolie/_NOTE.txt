@@ -1,0 +1,34 @@
+﻿
+
+Pagination : https://github.com/joeaudette/cloudscribe.Web.Pagination
+
+
+
+Suite à la mise à jour des fichier via Github
+
+	1) Initialiser  add-migration si besoins est
+
+	2) update-database
+
+	3) Ajouter les données du dossier SQLDATA : Exécuté (la petite flèche verte en haut à gauche du fichier ouvert dans VS)
+			A) dbo.Categories.Data.sql
+			B) dbo.Etats.Data.sql
+			C) dbo.Produits.Data.sql
+
+	4) Dans Explorateur d'objet Sql Server > Rafraichir
+			A) Vérifier si les données on été ajouter aux tables Produits, Etats et Categories
+
+	3) Dans C:\Documents\IISExpress\config > applicationhost.config :
+			changer la ligne 337 aproximativement (ci-dessous) de false à true pour donner accès au serveur IIS Express au dossier Images pour l'Enregistrement des nouvelles images
+		
+			<windowsAuthentication enabled="true">
+
+			ou/et
+
+			Sur le projet > Clique droit > Propriétés > Déboguer > Cocher Authentification Windows > Sauf-garder
+
+			ou/et
+
+			https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities
+
+	4) Exécuter

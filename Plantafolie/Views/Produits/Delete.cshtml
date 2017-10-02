@@ -1,0 +1,96 @@
+﻿@model Plantafolie.Models.Produit.Produit
+
+@{
+    ViewData["Title"] = "Supression de " + Model.Nom;
+}
+
+<h2>Supression de @Model.Nom</h2>
+
+<h3 class="text-danger">Êtes vous sûr de vouloir supprimer ce produit?</h3>
+<hr />
+<div>
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nom)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrixDemande)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrixDemande)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PrixDeVente)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PrixDeVente)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ImageName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ImageName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateDeCreation)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DateDeCreation)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quantite)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Quantite)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Disponible)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Disponible)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Poids)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Poids)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EtatID)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EtatID)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Categorie)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Categorie.CategorieID)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-6">
+            <img src="~/Images/Produits/@Model.ImageName" alt="@Model.Nom" class="itemImg"/>     
+        </div>
+    </div>
+    
+   
+    
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProduitID" />
+        <input type="submit" value="Supprimer" class="btn btn-default" /> &emsp;
+        <a asp-action="Index">Retour à la liste</a>
+    </form>
+</div>

@@ -1,0 +1,89 @@
+﻿@model Plantafolie.Models.Produit.Produit
+
+@{
+    ViewData["Title"] = "Détails " + Model.Nom;
+}
+
+<h2>Détails @Html.DisplayFor(model => model.Nom)</h2>
+<div class="row">
+    <div>
+        <hr />
+        <dl class="col-lg-6 dl-horizontal ">
+            <!-- -->
+            <dt>
+                @Html.DisplayNameFor(model => model.Nom)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nom)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PrixDemande)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PrixDemande)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PrixDeVente)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PrixDeVente)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ImageName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateDeCreation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateDeCreation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantite)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Quantite)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Disponible)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Disponible)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Poids)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Poids)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EtatID)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Etat.EtatNom)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Categorie)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Categorie.CategorieNom)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-lg-6">
+        <!-- imanges -->
+        <img src="~/Images/Produits/@Model.ImageName" alt="@Model.Nom" class="itemImg"/>     
+    </div>
+</div>
+<div class="row">
+    <a asp-action="Edit" asp-route-id="@Model.ProduitID">Édition</a> |
+    <a asp-action="Index">Retour à la liste</a>
+</div>
