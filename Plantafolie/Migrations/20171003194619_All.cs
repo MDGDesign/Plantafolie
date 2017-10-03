@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Plantafolie.Migrations
 {
-    public partial class AllOfIt : Migration
+    public partial class All : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

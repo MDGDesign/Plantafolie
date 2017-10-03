@@ -1,0 +1,45 @@
+﻿
+
+	Asp.netCore 2
+		https://andrewlock.net/the-microsoft-aspnetcore-all-metapackage-is-huge-and-thats-awesome-thanks-to-the-net-core-runtime-store-2/
+		Voir le paragraphe - Discoverability of APIs
+
+	Instruction console
+		https://docs.microsoft.com/en-us/nuget/tools/package-manager-console
+			Get-Package -ListAvailable -PageSize 500
+			Find-package nom du package
+			Install-Package nom du package
+
+	Pagination
+		https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page
+		https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
+
+		X.PagedList.Mvc.Core 1.0.4-beta
+		https://www.nuget.org/packages/X.PagedList.Mvc.Core
+		https://github.com/dncuug/X.PagedList
+		https://stackoverflow.com/questions/41517359/pagedlist-core-mvc-pagedlistpager-html-extension-in-net-core-is-not-there
+
+		Installation via la console seulement. N'apparait pas dans la liste de Nuget lors des recherches
+		Install-Package X.PagedList.Mvc.Core -Version 1.0.4-beta
+
+		Instructions
+		Startup
+		public void ConfigureServices(IServiceCollection services) { services.AddSingleton<IActionContextAccessor, ActionContextAccessor>(); }
+
+		ViewImport
+		@addTagHelper *, PagedList.Core.Mvc
+
+		HtmlPage
+		<pager class="pager-container" list="@Model" options="@PagedListRenderOptions.TwitterBootstrapPager" asp-action="Index" asp-controller="Produits" />
+
+
+
+    Pour la recherche: 
+		https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/search
+
+    Pour le chargement des fichiers  :
+		https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads
+		https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files
+
+    Pour la validation :
+		https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/validation

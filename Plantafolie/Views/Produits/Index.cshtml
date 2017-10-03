@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Plantafolie.Models.Produit.Produit>
-@using PagedList.Mvc;
-@using PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
 
 
 
@@ -25,8 +25,19 @@
 
         }
 
+    <select>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="all">all</option>
+    </select>
+
 </div>
 <br />
+@Html.PagedListPager((IPagedList)ViewBag.PageOfProducts, page => Url.Action("Index", new { page, pageSize = ViewBag.ItemsPerPage }))    
 <table class="table">
     <thead>
         <tr>
@@ -51,7 +62,7 @@
                     @Html.DisplayNameFor(model => model.Disponible)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Poids)
+                    @Html.DisplayNameFor(model => model.Poids) (kg)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Etat)
@@ -85,7 +96,7 @@
                 @Html.DisplayFor(modelItem => item.Disponible)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Poids) kg
+                @Html.DisplayFor(modelItem => item.Poids)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Etat.EtatNom)
@@ -99,6 +110,7 @@
                 <a asp-action="Delete" asp-route-id="@item.ProduitID" class="btn btn-default">Supprimer</a>
             </td>
         </tr>
-}       <!-- Html.PagedListPager ((IPagedList)ViewBag.PageOfProducts, page => Url.Action("Index", new { page })) -->
+}       
     </tbody>
 </table>
+@Html.PagedListPager((IPagedList)ViewBag.PageOfProducts, page => Url.Action("Index", new { page, pageSize = ViewBag.ItemsPerPage }))    

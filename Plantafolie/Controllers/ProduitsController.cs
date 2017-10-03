@@ -11,8 +11,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.EntityFrameworkCore.Query;
-using PagedList.Mvc;
-using PagedList;
+using X.PagedList.Mvc.Core;
+using X.PagedList;
+
 
 namespace Plantafolie.Controllers
 {
@@ -30,29 +31,31 @@ namespace Plantafolie.Controllers
 
 
         // GET: Produits
-        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchType, string searchString, int? page)
+        public async Task<IActionResult> Index(string sortOrder, string currentSearch, string searchString, string searchType, int? page, int? pageSize)
         {
-            // Order de trie pour les liens
+            // Ordre de trie pour les liens - Si c'est un alors c'est l'inverse
             ViewBag.CurrentSort = sortOrder;
             ViewBag.ProdIDSortParam = String.IsNullOrEmpty(sortOrder) ? "ProdID_desc" : "";
             ViewBag.CatSortParam    = sortOrder == "Categorie" ? "Cat_desc" : "Categorie";
             ViewBag.DateSortParam   = sortOrder == "Date" ? "Date_desc" : "Date";
             ViewBag.NomSortParam    = sortOrder == "Nom" ? "Nom_desc" : "Nom";
+            ViewBag.CurrentSearch   = searchString;
 
-            // IEnumerable<Produit> listeDesProduits = _context.Produits.Include(p => p.Categorie).Include(p => p.Etat);
+            // Liste de départ des produits par défaut
             var listeDesProduits = _context.Produits.Include(p => p.Categorie).Include(p => p.Etat);
 
-            if (!String.IsNullOrEmpty(searchString))
+            
+            // Si currentFilter n'est pas null, alors affiche la page 1 sinon applique le currentFilter
+            if (!String.IsNullOrEmpty(currentSearch))
             {
                 page = 1;
-                
             }
             else
             {
-                searchString = currentFilter;
+                searchString = currentSearch;
             }
 
-            ViewBag.CurrentFilter = searchString;
+            
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -63,14 +66,20 @@ namespace Plantafolie.Controllers
             listeDesProduits = SortList(listeDesProduits, sortOrder);
 
             // Pagination
-            int pageNumber = (page ?? 1);
-            var pageOfProducts = listeDesProduits.ToPagedList(pageNumber, 25);
-            int pageSize = 10;
+            int itemsPerPage     = (pageSize ?? 10);
+            int pageIndex       = (page ?? 1);                             // X.PagedList - MembershipProvider expects a 0 for the first page
+            int totalProduits   = listeDesProduits.Count();              // X.PagedList - will be set by call to GetAllUsers due to _out_ paramter :-|
 
-            ViewBag.PageOfProducts = pageOfProducts;
+            var pageOfProducts = listeDesProduits.ToPagedList(pageIndex, itemsPerPage);
+            var prodAsPageList = new StaticPagedList<Produit>(listeDesProduits, pageIndex, itemsPerPage, totalProduits);
+            var pagedList = listeDesProduits.ToPagedList(pageIndex, itemsPerPage);
 
-            return View(await listeDesProduits.ToListAsync());
-            // return View(listeDesProduits.ToPagedList(pageNumber, pageSize));
+            // Transfert des infos 
+            ViewBag.PageOfProducts  = prodAsPageList;
+            ViewBag.ItemPerPage     = itemsPerPage;
+            ViewBag.CurrentSearch = currentSearch;
+
+            return View(await pagedList.ToListAsync());
         }
 
     

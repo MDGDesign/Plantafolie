@@ -18,13 +18,7 @@ namespace Plantafolie.Models.Produit
              Il est possible de retrouver un produit dans plusieurs catégories (Ex.: Plante d'ombre et plante facile ou rare)
              Il est possible de retrouver un produit dans plusieurs états (Ex.: Plante est nouvelle et est en liquidation)
              L'ordre de trie des champs ProduitID, Categorie et Date de création est fait via la table (Double clique dessus pour avoir les option de la table)
-            Pour la pagination : https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page
-            Pour la pagination: https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-            Pour la recherche: https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/search
-            Pour le chargement des fichiers  : https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads
-            Pour le chargement : https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files
-            Pour la validation :https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/validation
-
+ 
         */
 
 

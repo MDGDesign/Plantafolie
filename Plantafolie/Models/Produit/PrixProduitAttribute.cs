@@ -6,6 +6,15 @@ using System.Globalization;
 
 namespace Plantafolie.Models.Produit
 {
+
+    // Classe  test custom  pour la validation du prix demandé et prix de vente
+    // Non implémenté
+    // Voir la classe produit pour la vérification
+
+
+
+
+
     public class PrixProduitAttribute : ValidationAttribute, IClientModelValidator
     {
         // Source : https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation

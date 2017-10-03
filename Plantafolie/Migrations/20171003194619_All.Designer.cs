@@ -11,8 +11,8 @@ using System;
 namespace Plantafolie.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20171002140755_AllOfIt")]
-    partial class AllOfIt
+    [Migration("20171003194619_All")]
+    partial class All
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
