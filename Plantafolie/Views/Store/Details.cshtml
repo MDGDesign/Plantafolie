@@ -1,0 +1,26 @@
+﻿@model Plantafolie.Models.ProduitViewModels.Produit
+@{
+    ViewBag.Title = "Produit - " + Model.Nom;
+}
+<h2>@Model.Nom</h2>
+<p>
+    <img alt="@Model.Nom"
+         src="@Model.ImageName" />
+</p>
+<div id="album-details">
+    <p>
+        <em>Catégorie:</em>
+        @Model.Categorie.CategorieNom
+    </p>
+    <p>
+        <em>Nom:</em>
+        @Model.Nom
+    </p>
+    <p>
+        <em>Prix:</em>
+        @String.Format("{0:F}", Model.PrixDemande)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Ajouter au panier", "AddToCart", "ShoppingCart", new { id = Model.ProduitID }, "")
+    </p>
+</div>

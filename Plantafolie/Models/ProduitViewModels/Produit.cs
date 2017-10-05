@@ -8,9 +8,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Plantafolie.Models.Produit
+namespace Plantafolie.Models.ProduitViewModels
 {
-    public class Produit : IValidatableObject
+    public class Produit //: IValidatableObject
     {
 
         /* 

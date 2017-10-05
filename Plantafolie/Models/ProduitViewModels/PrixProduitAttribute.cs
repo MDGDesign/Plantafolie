@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
-namespace Plantafolie.Models.Produit
+namespace Plantafolie.Models.ProduitViewModels
 {
     public class PrixProduitAttribute : ValidationAttribute, IClientModelValidator
     {

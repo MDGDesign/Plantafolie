@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Plantafolie.Models.ProduitViewModels.Categorie>
+
+@{
+    ViewBag.Title = "Store";
+}
+
+<h3>Cherchez dans les catégories</h3>
+
+<p>
+    Select from @Model.Count()
+    Catégorie:
+</p>
+<ul>
+    @foreach (var categorie in Model)
+    {
+        <li>
+            @Html.ActionLink(categorie.CategorieNom, "Browse", new { categorie = categorie.CategorieNom })
+    </li>
+    }
+</ul>

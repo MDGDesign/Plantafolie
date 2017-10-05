@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Plantafolie.Models.Produit
+namespace Plantafolie.Models.ProduitViewModels
 {
     public class PopulateProduit
     {

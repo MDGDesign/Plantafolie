@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Plantafolie.Models;
-using Plantafolie.Models.Produit;
+using Plantafolie.Models.ProduitViewModels;
 
 namespace Plantafolie.Data
 {
@@ -16,6 +12,9 @@ namespace Plantafolie.Data
         public DbSet<Produit> Produits { get; set; }
         public DbSet<Categorie> Categories { get; set; }
         public DbSet<Etat> Etats { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

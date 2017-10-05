@@ -20,9 +20,15 @@ namespace Plantafolie.Controllers
         }
 
         // GET: Clients
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string searchString)
         {
-            return View(await _context.Clients.ToListAsync());
+            ViewData["CurrentFilter"] = searchString;
+            IEnumerable<Client> clientList = _context.Clients;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                clientList = clientList.Where(s => s.Prenom.Contains(searchString) || s.Nom.Contains(searchString) || s.Courriel.Contains(searchString));
+            }
+            return View(clientList);
         }
 
         // GET: Clients/Details/5

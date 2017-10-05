@@ -9,6 +9,17 @@
 <p>
     <a asp-action="Create">Créer un nouveau client...</a>
 </p>
+
+<form asp-action="Index" method="post">
+    <div class="form-actions no-color">
+        <p>
+            Rechercher : <input type="text" name="SearchString" />
+            <input type="submit" value="Search" class="btn btn-default" />
+            <a asp-action="Index">Retour à la liste complète...</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -19,30 +30,13 @@
                     @Html.DisplayNameFor(model => model.Nom)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Adresse)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Ville)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Province)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Pays)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Telephone)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cellulaire)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Courriel)
                 </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
+
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -50,24 +44,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Adresse)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ville)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Province)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pays)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telephone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cellulaire)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Courriel)

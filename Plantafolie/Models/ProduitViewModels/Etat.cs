@@ -2,21 +2,23 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Plantafolie.Models.Produit
+namespace Plantafolie.Models.ProduitViewModels
 {
-    public class Categorie
+    public class Etat
     {
+
         /* 
-             On peut avoir une liste de produit selon la catégorie       
+             On peut avoir une liste de produit selon l'état       
         */
 
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CategorieID { get; set; }
+        public int EtatID { get; set; }
 
-        [DisplayName("Catégorie")]
-        public string CategorieNom { get; set; }
+        [DisplayName("Nom")]
+        public string EtatNom { get; set; }
 
         public List<Produit> Produits { get; set; }
+
     }
 }
